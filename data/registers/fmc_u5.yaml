@@ -1,0 +1,759 @@
+---
+block/FMC:
+  description: FMC
+  items:
+    - name: BCR1
+      description: SRAM/NOR-Flash chip-select control register for bank 1
+      byte_offset: 0
+      fieldset: BCR1
+    - name: BTR1
+      description: SRAM/NOR-Flash chip-select timing register for bank 1
+      byte_offset: 4
+      fieldset: BTR1
+    - name: BCR2
+      description: SRAM/NOR-Flash chip-select control register for bank 2
+      byte_offset: 8
+      fieldset: BCR2
+    - name: BTR2
+      description: SRAM/NOR-Flash chip-select timing register for bank 2
+      byte_offset: 12
+      fieldset: BTR2
+    - name: BCR3
+      description: SRAM/NOR-Flash chip-select control register for bank 3
+      byte_offset: 16
+      fieldset: BCR3
+    - name: BTR3
+      description: SRAM/NOR-Flash chip-select timing register for bank 3
+      byte_offset: 20
+      fieldset: BTR3
+    - name: BCR4
+      description: SRAM/NOR-Flash chip-select control register for bank 4
+      byte_offset: 24
+      fieldset: BCR4
+    - name: BTR4
+      description: SRAM/NOR-Flash chip-select timing register for bank 4
+      byte_offset: 28
+      fieldset: BTR4
+    - name: PCSCNTR
+      description: PSRAM chip select counter register
+      byte_offset: 32
+      fieldset: PCSCNTR
+    - name: PCR
+      description: NAND Flash control registers
+      byte_offset: 128
+      fieldset: PCR
+    - name: SR
+      description: status and interrupt register
+      byte_offset: 132
+      fieldset: SR
+    - name: PMEM
+      description: Common memory space timing register
+      byte_offset: 136
+      fieldset: PMEM
+    - name: PATT
+      description: "The FMC_PATT read/write register contains\r the timing information for NAND Flash memory bank. It is\r used for 8-bit accesses to the attribute memory space of\r the NAND Flash for the last address write access if the\r timing must differ from that of previous accesses (for\r Ready/Busy management, refer to Section20.8.5: NAND Flash\r prewait feature)."
+      byte_offset: 140
+      fieldset: PATT
+    - name: ECCR
+      description: "This register contain the current error\r correction code value computed by the ECC computation\r modules of the FMC NAND controller. When the CPU\r reads/writes the data from a NAND Flash memory page at\r the correct address (refer to Section20.8.6: Computation\r of the error correction code (ECC) in NAND Flash memory),\r the data read/written from/to the NAND Flash memory are\r processed automatically by the ECC computation module.\r When X bytes have been read (according to the ECCPS field\r in the FMC_PCR registers), the CPU must read the computed\r ECC value from the FMC_ECC registers. It then verifies if\r these computed parity data are the same as the parity\r value recorded in the spare area, to determine whether a\r page is valid, and, to correct it otherwise. The FMC_ECCR\r register should be cleared after being read by setting\r the ECCEN bit to 0. To compute a new data block, the\r ECCEN bit must be set to 1."
+      byte_offset: 148
+      access: Read
+      fieldset: ECCR
+    - name: BWTR1
+      description: SRAM/NOR-Flash write timing registers 1
+      byte_offset: 260
+      fieldset: BWTR1
+    - name: BWTR2
+      description: SRAM/NOR-Flash write timing registers 2
+      byte_offset: 268
+      fieldset: BWTR2
+    - name: BWTR3
+      description: SRAM/NOR-Flash write timing registers 3
+      byte_offset: 276
+      fieldset: BWTR3
+    - name: BWTR4
+      description: SRAM/NOR-Flash write timing registers 4
+      byte_offset: 284
+      fieldset: BWTR4
+fieldset/BCR1:
+  description: SRAM/NOR-Flash chip-select control register for bank 1
+  fields:
+    - name: MBKEN
+      description: Memory bank enable bit
+      bit_offset: 0
+      bit_size: 1
+    - name: MUXEN
+      description: Address/data multiplexing enable bit
+      bit_offset: 1
+      bit_size: 1
+    - name: MTYP
+      description: Memory type
+      bit_offset: 2
+      bit_size: 2
+    - name: MWID
+      description: Memory data bus width
+      bit_offset: 4
+      bit_size: 2
+    - name: FACCEN
+      description: Flash access enable
+      bit_offset: 6
+      bit_size: 1
+    - name: BURSTEN
+      description: Burst enable bit
+      bit_offset: 8
+      bit_size: 1
+    - name: WAITPOL
+      description: Wait signal polarity bit
+      bit_offset: 9
+      bit_size: 1
+    - name: WAITCFG
+      description: Wait timing configuration
+      bit_offset: 11
+      bit_size: 1
+    - name: WREN
+      description: Write enable bit
+      bit_offset: 12
+      bit_size: 1
+    - name: WAITEN
+      description: Wait enable bit
+      bit_offset: 13
+      bit_size: 1
+    - name: EXTMOD
+      description: Extended mode enable
+      bit_offset: 14
+      bit_size: 1
+    - name: ASYNCWAIT
+      description: "Wait signal during asynchronous\r transfers"
+      bit_offset: 15
+      bit_size: 1
+    - name: CPSIZE
+      description: CRAM Page Size
+      bit_offset: 16
+      bit_size: 3
+    - name: CBURSTRW
+      description: Write burst enable
+      bit_offset: 19
+      bit_size: 1
+    - name: CCLKEN
+      description: Continuous clock enable
+      bit_offset: 20
+      bit_size: 1
+    - name: WFDIS
+      description: Write FIFO disable
+      bit_offset: 21
+      bit_size: 1
+    - name: NBLSET
+      description: Byte lane (NBL) setup
+      bit_offset: 22
+      bit_size: 2
+    - name: FMCEN
+      description: FMC controller enable
+      bit_offset: 31
+      bit_size: 1
+fieldset/BCR2:
+  description: SRAM/NOR-Flash chip-select control register for bank 2
+  fields:
+    - name: MBKEN
+      description: Memory bank enable bit
+      bit_offset: 0
+      bit_size: 1
+    - name: MUXEN
+      description: Address/data multiplexing enable bit
+      bit_offset: 1
+      bit_size: 1
+    - name: MTYP
+      description: Memory type
+      bit_offset: 2
+      bit_size: 2
+    - name: MWID
+      description: Memory data bus width
+      bit_offset: 4
+      bit_size: 2
+    - name: FACCEN
+      description: Flash access enable
+      bit_offset: 6
+      bit_size: 1
+    - name: BURSTEN
+      description: Burst enable bit
+      bit_offset: 8
+      bit_size: 1
+    - name: WAITPOL
+      description: Wait signal polarity bit
+      bit_offset: 9
+      bit_size: 1
+    - name: WAITCFG
+      description: Wait timing configuration
+      bit_offset: 11
+      bit_size: 1
+    - name: WREN
+      description: Write enable bit
+      bit_offset: 12
+      bit_size: 1
+    - name: WAITEN
+      description: Wait enable bit
+      bit_offset: 13
+      bit_size: 1
+    - name: EXTMOD
+      description: Extended mode enable
+      bit_offset: 14
+      bit_size: 1
+    - name: ASYNCWAIT
+      description: "Wait signal during asynchronous\r transfers"
+      bit_offset: 15
+      bit_size: 1
+    - name: CPSIZE
+      description: CRAM Page Size
+      bit_offset: 16
+      bit_size: 3
+    - name: CBURSTRW
+      description: Write burst enable
+      bit_offset: 19
+      bit_size: 1
+    - name: CCLKEN
+      description: Continuous clock enable
+      bit_offset: 20
+      bit_size: 1
+    - name: WFDIS
+      description: Write FIFO disable
+      bit_offset: 21
+      bit_size: 1
+    - name: NBLSET
+      description: Byte lane (NBL) setup
+      bit_offset: 22
+      bit_size: 2
+    - name: FMCEN
+      description: FMC controller enable
+      bit_offset: 31
+      bit_size: 1
+fieldset/BCR3:
+  description: SRAM/NOR-Flash chip-select control register for bank 3
+  fields:
+    - name: MBKEN
+      description: Memory bank enable bit
+      bit_offset: 0
+      bit_size: 1
+    - name: MUXEN
+      description: Address/data multiplexing enable bit
+      bit_offset: 1
+      bit_size: 1
+    - name: MTYP
+      description: Memory type
+      bit_offset: 2
+      bit_size: 2
+    - name: MWID
+      description: Memory data bus width
+      bit_offset: 4
+      bit_size: 2
+    - name: FACCEN
+      description: Flash access enable
+      bit_offset: 6
+      bit_size: 1
+    - name: BURSTEN
+      description: Burst enable bit
+      bit_offset: 8
+      bit_size: 1
+    - name: WAITPOL
+      description: Wait signal polarity bit
+      bit_offset: 9
+      bit_size: 1
+    - name: WAITCFG
+      description: Wait timing configuration
+      bit_offset: 11
+      bit_size: 1
+    - name: WREN
+      description: Write enable bit
+      bit_offset: 12
+      bit_size: 1
+    - name: WAITEN
+      description: Wait enable bit
+      bit_offset: 13
+      bit_size: 1
+    - name: EXTMOD
+      description: Extended mode enable
+      bit_offset: 14
+      bit_size: 1
+    - name: ASYNCWAIT
+      description: "Wait signal during asynchronous\r transfers"
+      bit_offset: 15
+      bit_size: 1
+    - name: CPSIZE
+      description: CRAM Page Size
+      bit_offset: 16
+      bit_size: 3
+    - name: CBURSTRW
+      description: Write burst enable
+      bit_offset: 19
+      bit_size: 1
+    - name: CCLKEN
+      description: Continuous clock enable
+      bit_offset: 20
+      bit_size: 1
+    - name: WFDIS
+      description: Write FIFO disable
+      bit_offset: 21
+      bit_size: 1
+    - name: NBLSET
+      description: Byte lane (NBL) setup
+      bit_offset: 22
+      bit_size: 2
+    - name: FMCEN
+      description: FMC controller enable
+      bit_offset: 31
+      bit_size: 1
+fieldset/BCR4:
+  description: SRAM/NOR-Flash chip-select control register for bank 4
+  fields:
+    - name: MBKEN
+      description: Memory bank enable bit
+      bit_offset: 0
+      bit_size: 1
+    - name: MUXEN
+      description: Address/data multiplexing enable bit
+      bit_offset: 1
+      bit_size: 1
+    - name: MTYP
+      description: Memory type
+      bit_offset: 2
+      bit_size: 2
+    - name: MWID
+      description: Memory data bus width
+      bit_offset: 4
+      bit_size: 2
+    - name: FACCEN
+      description: Flash access enable
+      bit_offset: 6
+      bit_size: 1
+    - name: BURSTEN
+      description: Burst enable bit
+      bit_offset: 8
+      bit_size: 1
+    - name: WAITPOL
+      description: Wait signal polarity bit
+      bit_offset: 9
+      bit_size: 1
+    - name: WAITCFG
+      description: Wait timing configuration
+      bit_offset: 11
+      bit_size: 1
+    - name: WREN
+      description: Write enable bit
+      bit_offset: 12
+      bit_size: 1
+    - name: WAITEN
+      description: Wait enable bit
+      bit_offset: 13
+      bit_size: 1
+    - name: EXTMOD
+      description: Extended mode enable
+      bit_offset: 14
+      bit_size: 1
+    - name: ASYNCWAIT
+      description: "Wait signal during asynchronous\r transfers"
+      bit_offset: 15
+      bit_size: 1
+    - name: CPSIZE
+      description: CRAM Page Size
+      bit_offset: 16
+      bit_size: 3
+    - name: CBURSTRW
+      description: Write burst enable
+      bit_offset: 19
+      bit_size: 1
+    - name: CCLKEN
+      description: Continuous clock enable
+      bit_offset: 20
+      bit_size: 1
+    - name: WFDIS
+      description: Write FIFO disable
+      bit_offset: 21
+      bit_size: 1
+    - name: NBLSET
+      description: Byte lane (NBL) setup
+      bit_offset: 22
+      bit_size: 2
+    - name: FMCEN
+      description: FMC controller enable
+      bit_offset: 31
+      bit_size: 1
+fieldset/BTR1:
+  description: SRAM/NOR-Flash chip-select timing register for bank 1
+  fields:
+    - name: ADDSET
+      description: Address setup phase duration
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: Address-hold phase duration
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: Data-phase duration
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: Clock divide ratio (for FMC_CLK signal)
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: Data latency for synchronous memory
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: Access mode
+      bit_offset: 28
+      bit_size: 2
+    - name: DATAHLD
+      description: Data hold phase duration
+      bit_offset: 30
+      bit_size: 2
+fieldset/BTR2:
+  description: SRAM/NOR-Flash chip-select timing register for bank 2
+  fields:
+    - name: ADDSET
+      description: Address setup phase duration
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: Address-hold phase duration
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: Data-phase duration
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: Clock divide ratio (for FMC_CLK signal)
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: Data latency for synchronous memory
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: Access mode
+      bit_offset: 28
+      bit_size: 2
+    - name: DATAHLD
+      description: Data hold phase duration
+      bit_offset: 30
+      bit_size: 2
+fieldset/BTR3:
+  description: SRAM/NOR-Flash chip-select timing register for bank 3
+  fields:
+    - name: ADDSET
+      description: Address setup phase duration
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: Address-hold phase duration
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: Data-phase duration
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: Clock divide ratio (for FMC_CLK signal)
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: Data latency for synchronous memory
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: Access mode
+      bit_offset: 28
+      bit_size: 2
+    - name: DATAHLD
+      description: Data hold phase duration
+      bit_offset: 30
+      bit_size: 2
+fieldset/BTR4:
+  description: SRAM/NOR-Flash chip-select timing register for bank 4
+  fields:
+    - name: ADDSET
+      description: Address setup phase duration
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: Address-hold phase duration
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: Data-phase duration
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: Clock divide ratio (for FMC_CLK signal)
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: Data latency for synchronous memory
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: Access mode
+      bit_offset: 28
+      bit_size: 2
+    - name: DATAHLD
+      description: Data hold phase duration
+      bit_offset: 30
+      bit_size: 2
+fieldset/BWTR1:
+  description: SRAM/NOR-Flash write timing registers 1
+  fields:
+    - name: ADDSET
+      description: Address setup phase duration
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: Address-hold phase duration
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: Data-phase duration
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: ACCMOD
+      description: Access mode
+      bit_offset: 28
+      bit_size: 2
+    - name: DATAHLD
+      description: Data hold phase duration
+      bit_offset: 30
+      bit_size: 2
+fieldset/BWTR2:
+  description: SRAM/NOR-Flash write timing registers 2
+  fields:
+    - name: ADDSET
+      description: Address setup phase duration
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: Address-hold phase duration
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: Data-phase duration
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: ACCMOD
+      description: Access mode
+      bit_offset: 28
+      bit_size: 2
+    - name: DATAHLD
+      description: Data hold phase duration
+      bit_offset: 30
+      bit_size: 2
+fieldset/BWTR3:
+  description: SRAM/NOR-Flash write timing registers 3
+  fields:
+    - name: ADDSET
+      description: Address setup phase duration
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: Address-hold phase duration
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: Data-phase duration
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: ACCMOD
+      description: Access mode
+      bit_offset: 28
+      bit_size: 2
+    - name: DATAHLD
+      description: Data hold phase duration
+      bit_offset: 30
+      bit_size: 2
+fieldset/BWTR4:
+  description: SRAM/NOR-Flash write timing registers 4
+  fields:
+    - name: ADDSET
+      description: Address setup phase duration
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: Address-hold phase duration
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: Data-phase duration
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: ACCMOD
+      description: Access mode
+      bit_offset: 28
+      bit_size: 2
+    - name: DATAHLD
+      description: Data hold phase duration
+      bit_offset: 30
+      bit_size: 2
+fieldset/ECCR:
+  description: "This register contain the current error\r correction code value computed by the ECC computation\r modules of the FMC NAND controller. When the CPU\r reads/writes the data from a NAND Flash memory page at\r the correct address (refer to Section20.8.6: Computation\r of the error correction code (ECC) in NAND Flash memory),\r the data read/written from/to the NAND Flash memory are\r processed automatically by the ECC computation module.\r When X bytes have been read (according to the ECCPS field\r in the FMC_PCR registers), the CPU must read the computed\r ECC value from the FMC_ECC registers. It then verifies if\r these computed parity data are the same as the parity\r value recorded in the spare area, to determine whether a\r page is valid, and, to correct it otherwise. The FMC_ECCR\r register should be cleared after being read by setting\r the ECCEN bit to 0. To compute a new data block, the\r ECCEN bit must be set to 1."
+  fields:
+    - name: ECC
+      description: "ECC result This field contains the value\r computed by the ECC computation logic. Table167\r describes the contents of these bit\r fields."
+      bit_offset: 0
+      bit_size: 32
+fieldset/PATT:
+  description: "The FMC_PATT read/write register contains\r the timing information for NAND Flash memory bank. It is\r used for 8-bit accesses to the attribute memory space of\r the NAND Flash for the last address write access if the\r timing must differ from that of previous accesses (for\r Ready/Busy management, refer to Section20.8.5: NAND Flash\r prewait feature)."
+  fields:
+    - name: ATTSET
+      description: "Attribute memory setup time These bits\r define the number of KCK_FMC (+1) clock cycles to set\r up address before the command assertion (NWE, NOE),\r for NAND Flash read or write access to attribute\r memory space:"
+      bit_offset: 0
+      bit_size: 8
+    - name: ATTWAIT
+      description: "Attribute memory wait time These bits\r define the minimum number of x KCK_FMC (+1) clock\r cycles to assert the command (NWE, NOE), for NAND\r Flash read or write access to attribute memory space.\r The duration for command assertion is extended if the\r wait signal (NWAIT) is active (low) at the end of the\r programmed value of KCK_FMC:"
+      bit_offset: 8
+      bit_size: 8
+    - name: ATTHOLD
+      description: "Attribute memory hold time These bits\r define the number of KCK_FMC clock cycles during\r which the address is held (and data for write access)\r after the command de-assertion (NWE, NOE), for NAND\r Flash read or write access to attribute memory\r space:"
+      bit_offset: 16
+      bit_size: 8
+    - name: ATTHIZ
+      description: "Attribute memory data bus Hi-Z time\r These bits define the number of KCK_FMC clock cycles\r during which the data bus is kept in Hi-Z after the\r start of a NAND Flash write access to attribute\r memory space on socket. Only valid for writ\r transaction:"
+      bit_offset: 24
+      bit_size: 8
+fieldset/PCR:
+  description: NAND Flash control registers
+  fields:
+    - name: PWAITEN
+      description: Wait feature enable bit
+      bit_offset: 1
+      bit_size: 1
+    - name: PBKEN
+      description: NAND Flash memory bank enable bit
+      bit_offset: 2
+      bit_size: 1
+    - name: PTYP
+      description: Memory type
+      bit_offset: 3
+      bit_size: 1
+    - name: PWID
+      description: Data bus width
+      bit_offset: 4
+      bit_size: 2
+    - name: ECCEN
+      description: ECC computation logic enable bit
+      bit_offset: 6
+      bit_size: 1
+    - name: TCLR
+      description: CLE to RE delay
+      bit_offset: 9
+      bit_size: 4
+    - name: TAR
+      description: ALE to RE delay
+      bit_offset: 13
+      bit_size: 3
+    - name: ECCPS
+      description: ECC page size
+      bit_offset: 17
+      bit_size: 3
+fieldset/PCSCNTR:
+  description: PSRAM chip select counter register
+  fields:
+    - name: CSCOUNT
+      description: Chip select counter
+      bit_offset: 0
+      bit_size: 16
+    - name: CNTB1EN
+      description: Counter Bank 1 enable
+      bit_offset: 16
+      bit_size: 1
+    - name: CNTB2EN
+      description: Counter Bank 2 enable
+      bit_offset: 17
+      bit_size: 1
+    - name: CNTB3EN
+      description: Counter Bank 3 enable
+      bit_offset: 18
+      bit_size: 1
+    - name: CNTB4EN
+      description: Counter Bank 4 enable
+      bit_offset: 19
+      bit_size: 1
+fieldset/PMEM:
+  description: Common memory space timing register
+  fields:
+    - name: MEMSET
+      description: "Common memory x setup time These bits\r define the number of KCK_FMC (+1) clock cycles to set\r up the address before the command assertion (NWE,\r NOE), for NAND Flash read or write access to common\r memory space:"
+      bit_offset: 0
+      bit_size: 8
+    - name: MEMWAIT
+      description: "Common memory wait time These bits\r define the minimum number of KCK_FMC (+1) clock\r cycles to assert the command (NWE, NOE), for NAND\r Flash read or write access to common memory space.\r The duration of command assertion is extended if the\r wait signal (NWAIT) is active (low) at the end of the\r programmed value of KCK_FMC:"
+      bit_offset: 8
+      bit_size: 8
+    - name: MEMHOLD
+      description: "Common memory hold time These bits\r define the number of KCK_FMC clock cycles for write\r accesses and KCK_FMC+1 clock cycles for read accesses\r during which the address is held (and data for write\r accesses) after the command is de-asserted (NWE,\r NOE), for NAND Flash read or write access to common\r memory space:"
+      bit_offset: 16
+      bit_size: 8
+    - name: MEMHIZ
+      description: "Common memory x data bus Hi-Z time These\r bits define the number of KCK_FMC clock cycles during\r which the data bus is kept Hi-Z after the start of a\r NAND Flash write access to common memory space. This\r is only valid for write transactions:"
+      bit_offset: 24
+      bit_size: 8
+fieldset/SR:
+  description: status and interrupt register
+  fields:
+    - name: IRS
+      description: "Interrupt rising edge status The flag is\r set by hardware and reset by software. Note: If this\r bit is written by software to 1 it will be\r set."
+      bit_offset: 0
+      bit_size: 1
+    - name: ILS
+      description: "Interrupt high-level status The flag is\r set by hardware and reset by software."
+      bit_offset: 1
+      bit_size: 1
+    - name: IFS
+      description: "Interrupt falling edge status The flag\r is set by hardware and reset by software. Note: If\r this bit is written by software to 1 it will be\r set."
+      bit_offset: 2
+      bit_size: 1
+    - name: IREN
+      description: "Interrupt rising edge detection enable\r bit"
+      bit_offset: 3
+      bit_size: 1
+    - name: ILEN
+      description: "Interrupt high-level detection enable\r bit"
+      bit_offset: 4
+      bit_size: 1
+    - name: IFEN
+      description: "Interrupt falling edge detection enable\r bit"
+      bit_offset: 5
+      bit_size: 1
+    - name: FEMPT
+      description: "FIFO empty. Read-only bit that provides\r the status of the FIFO"
+      bit_offset: 6
+      bit_size: 1

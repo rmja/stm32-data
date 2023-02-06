@@ -1,0 +1,943 @@
+---
+block/FMC:
+  description: Flexible memory controller
+  items:
+    - name: BCR1
+      description: SRAM/NOR-Flash chip-select control register 1
+      byte_offset: 0
+      fieldset: BCR1
+    - name: BTR1
+      description: SRAM/NOR-Flash chip-select timing register 1
+      byte_offset: 4
+      fieldset: BTR1
+    - name: BCR2
+      description: SRAM/NOR-Flash chip-select control register 2
+      byte_offset: 8
+      fieldset: BCR2
+    - name: BTR2
+      description: SRAM/NOR-Flash chip-select timing register 2
+      byte_offset: 12
+      fieldset: BTR2
+    - name: BCR3
+      description: SRAM/NOR-Flash chip-select control register 3
+      byte_offset: 16
+      fieldset: BCR3
+    - name: BTR3
+      description: SRAM/NOR-Flash chip-select timing register 3
+      byte_offset: 20
+      fieldset: BTR3
+    - name: BCR4
+      description: SRAM/NOR-Flash chip-select control register 4
+      byte_offset: 24
+      fieldset: BCR4
+    - name: BTR4
+      description: SRAM/NOR-Flash chip-select timing register 4
+      byte_offset: 28
+      fieldset: BTR4
+    - name: PCR2
+      description: PC Card/NAND Flash control register 2
+      byte_offset: 96
+      fieldset: PCR2
+    - name: SR2
+      description: FIFO status and interrupt register 2
+      byte_offset: 100
+      fieldset: SR2
+    - name: PMEM2
+      description: Common memory space timing register 2
+      byte_offset: 104
+      fieldset: PMEM2
+    - name: PATT2
+      description: Attribute memory space timing register 2
+      byte_offset: 108
+      fieldset: PATT2
+    - name: ECCR2
+      description: ECC result register 2
+      byte_offset: 116
+      access: Read
+      fieldset: ECCR2
+    - name: PCR3
+      description: PC Card/NAND Flash control register 3
+      byte_offset: 128
+      fieldset: PCR3
+    - name: SR3
+      description: FIFO status and interrupt register 3
+      byte_offset: 132
+      fieldset: SR3
+    - name: PMEM3
+      description: Common memory space timing register 3
+      byte_offset: 136
+      fieldset: PMEM3
+    - name: PATT3
+      description: Attribute memory space timing register 3
+      byte_offset: 140
+      fieldset: PATT3
+    - name: ECCR3
+      description: ECC result register 3
+      byte_offset: 148
+      access: Read
+      fieldset: ECCR3
+    - name: PCR4
+      description: PC Card/NAND Flash control register 4
+      byte_offset: 160
+      fieldset: PCR4
+    - name: SR4
+      description: FIFO status and interrupt register 4
+      byte_offset: 164
+      fieldset: SR4
+    - name: PMEM4
+      description: Common memory space timing register 4
+      byte_offset: 168
+      fieldset: PMEM4
+    - name: PATT4
+      description: Attribute memory space timing register 4
+      byte_offset: 172
+      fieldset: PATT4
+    - name: PIO4
+      description: I/O space timing register 4
+      byte_offset: 176
+      fieldset: PIO4
+    - name: BWTR1
+      description: SRAM/NOR-Flash write timing registers 1
+      byte_offset: 260
+      fieldset: BWTR1
+    - name: BWTR2
+      description: SRAM/NOR-Flash write timing registers 2
+      byte_offset: 268
+      fieldset: BWTR2
+    - name: BWTR3
+      description: SRAM/NOR-Flash write timing registers 3
+      byte_offset: 276
+      fieldset: BWTR3
+    - name: BWTR4
+      description: SRAM/NOR-Flash write timing registers 4
+      byte_offset: 284
+      fieldset: BWTR4
+fieldset/BCR1:
+  description: SRAM/NOR-Flash chip-select control register 1
+  fields:
+    - name: MBKEN
+      description: MBKEN
+      bit_offset: 0
+      bit_size: 1
+    - name: MUXEN
+      description: MUXEN
+      bit_offset: 1
+      bit_size: 1
+    - name: MTYP
+      description: MTYP
+      bit_offset: 2
+      bit_size: 2
+    - name: MWID
+      description: MWID
+      bit_offset: 4
+      bit_size: 2
+    - name: FACCEN
+      description: FACCEN
+      bit_offset: 6
+      bit_size: 1
+    - name: BURSTEN
+      description: BURSTEN
+      bit_offset: 8
+      bit_size: 1
+    - name: WAITPOL
+      description: WAITPOL
+      bit_offset: 9
+      bit_size: 1
+    - name: WAITCFG
+      description: WAITCFG
+      bit_offset: 11
+      bit_size: 1
+    - name: WREN
+      description: WREN
+      bit_offset: 12
+      bit_size: 1
+    - name: WAITEN
+      description: WAITEN
+      bit_offset: 13
+      bit_size: 1
+    - name: EXTMOD
+      description: EXTMOD
+      bit_offset: 14
+      bit_size: 1
+    - name: ASYNCWAIT
+      description: ASYNCWAIT
+      bit_offset: 15
+      bit_size: 1
+    - name: CBURSTRW
+      description: CBURSTRW
+      bit_offset: 19
+      bit_size: 1
+    - name: CCLKEN
+      description: CCLKEN
+      bit_offset: 20
+      bit_size: 1
+fieldset/BCR2:
+  description: SRAM/NOR-Flash chip-select control register 2
+  fields:
+    - name: MBKEN
+      description: MBKEN
+      bit_offset: 0
+      bit_size: 1
+    - name: MUXEN
+      description: MUXEN
+      bit_offset: 1
+      bit_size: 1
+    - name: MTYP
+      description: MTYP
+      bit_offset: 2
+      bit_size: 2
+    - name: MWID
+      description: MWID
+      bit_offset: 4
+      bit_size: 2
+    - name: FACCEN
+      description: FACCEN
+      bit_offset: 6
+      bit_size: 1
+    - name: BURSTEN
+      description: BURSTEN
+      bit_offset: 8
+      bit_size: 1
+    - name: WAITPOL
+      description: WAITPOL
+      bit_offset: 9
+      bit_size: 1
+    - name: WRAPMOD
+      description: WRAPMOD
+      bit_offset: 10
+      bit_size: 1
+    - name: WAITCFG
+      description: WAITCFG
+      bit_offset: 11
+      bit_size: 1
+    - name: WREN
+      description: WREN
+      bit_offset: 12
+      bit_size: 1
+    - name: WAITEN
+      description: WAITEN
+      bit_offset: 13
+      bit_size: 1
+    - name: EXTMOD
+      description: EXTMOD
+      bit_offset: 14
+      bit_size: 1
+    - name: ASYNCWAIT
+      description: ASYNCWAIT
+      bit_offset: 15
+      bit_size: 1
+    - name: CBURSTRW
+      description: CBURSTRW
+      bit_offset: 19
+      bit_size: 1
+fieldset/BCR3:
+  description: SRAM/NOR-Flash chip-select control register 3
+  fields:
+    - name: MBKEN
+      description: MBKEN
+      bit_offset: 0
+      bit_size: 1
+    - name: MUXEN
+      description: MUXEN
+      bit_offset: 1
+      bit_size: 1
+    - name: MTYP
+      description: MTYP
+      bit_offset: 2
+      bit_size: 2
+    - name: MWID
+      description: MWID
+      bit_offset: 4
+      bit_size: 2
+    - name: FACCEN
+      description: FACCEN
+      bit_offset: 6
+      bit_size: 1
+    - name: BURSTEN
+      description: BURSTEN
+      bit_offset: 8
+      bit_size: 1
+    - name: WAITPOL
+      description: WAITPOL
+      bit_offset: 9
+      bit_size: 1
+    - name: WRAPMOD
+      description: WRAPMOD
+      bit_offset: 10
+      bit_size: 1
+    - name: WAITCFG
+      description: WAITCFG
+      bit_offset: 11
+      bit_size: 1
+    - name: WREN
+      description: WREN
+      bit_offset: 12
+      bit_size: 1
+    - name: WAITEN
+      description: WAITEN
+      bit_offset: 13
+      bit_size: 1
+    - name: EXTMOD
+      description: EXTMOD
+      bit_offset: 14
+      bit_size: 1
+    - name: ASYNCWAIT
+      description: ASYNCWAIT
+      bit_offset: 15
+      bit_size: 1
+    - name: CBURSTRW
+      description: CBURSTRW
+      bit_offset: 19
+      bit_size: 1
+fieldset/BCR4:
+  description: SRAM/NOR-Flash chip-select control register 4
+  fields:
+    - name: MBKEN
+      description: MBKEN
+      bit_offset: 0
+      bit_size: 1
+    - name: MUXEN
+      description: MUXEN
+      bit_offset: 1
+      bit_size: 1
+    - name: MTYP
+      description: MTYP
+      bit_offset: 2
+      bit_size: 2
+    - name: MWID
+      description: MWID
+      bit_offset: 4
+      bit_size: 2
+    - name: FACCEN
+      description: FACCEN
+      bit_offset: 6
+      bit_size: 1
+    - name: BURSTEN
+      description: BURSTEN
+      bit_offset: 8
+      bit_size: 1
+    - name: WAITPOL
+      description: WAITPOL
+      bit_offset: 9
+      bit_size: 1
+    - name: WRAPMOD
+      description: WRAPMOD
+      bit_offset: 10
+      bit_size: 1
+    - name: WAITCFG
+      description: WAITCFG
+      bit_offset: 11
+      bit_size: 1
+    - name: WREN
+      description: WREN
+      bit_offset: 12
+      bit_size: 1
+    - name: WAITEN
+      description: WAITEN
+      bit_offset: 13
+      bit_size: 1
+    - name: EXTMOD
+      description: EXTMOD
+      bit_offset: 14
+      bit_size: 1
+    - name: ASYNCWAIT
+      description: ASYNCWAIT
+      bit_offset: 15
+      bit_size: 1
+    - name: CBURSTRW
+      description: CBURSTRW
+      bit_offset: 19
+      bit_size: 1
+fieldset/BTR1:
+  description: SRAM/NOR-Flash chip-select timing register 1
+  fields:
+    - name: ADDSET
+      description: ADDSET
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: ADDHLD
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: DATAST
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: BUSTURN
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: CLKDIV
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: DATLAT
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: ACCMOD
+      bit_offset: 28
+      bit_size: 2
+fieldset/BTR2:
+  description: SRAM/NOR-Flash chip-select timing register 2
+  fields:
+    - name: ADDSET
+      description: ADDSET
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: ADDHLD
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: DATAST
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: BUSTURN
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: CLKDIV
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: DATLAT
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: ACCMOD
+      bit_offset: 28
+      bit_size: 2
+fieldset/BTR3:
+  description: SRAM/NOR-Flash chip-select timing register 3
+  fields:
+    - name: ADDSET
+      description: ADDSET
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: ADDHLD
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: DATAST
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: BUSTURN
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: CLKDIV
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: DATLAT
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: ACCMOD
+      bit_offset: 28
+      bit_size: 2
+fieldset/BTR4:
+  description: SRAM/NOR-Flash chip-select timing register 4
+  fields:
+    - name: ADDSET
+      description: ADDSET
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: ADDHLD
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: DATAST
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: BUSTURN
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: CLKDIV
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: DATLAT
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: ACCMOD
+      bit_offset: 28
+      bit_size: 2
+fieldset/BWTR1:
+  description: SRAM/NOR-Flash write timing registers 1
+  fields:
+    - name: ADDSET
+      description: ADDSET
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: ADDHLD
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: DATAST
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: CLKDIV
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: DATLAT
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: ACCMOD
+      bit_offset: 28
+      bit_size: 2
+fieldset/BWTR2:
+  description: SRAM/NOR-Flash write timing registers 2
+  fields:
+    - name: ADDSET
+      description: ADDSET
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: ADDHLD
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: DATAST
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: CLKDIV
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: DATLAT
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: ACCMOD
+      bit_offset: 28
+      bit_size: 2
+fieldset/BWTR3:
+  description: SRAM/NOR-Flash write timing registers 3
+  fields:
+    - name: ADDSET
+      description: ADDSET
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: ADDHLD
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: DATAST
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: CLKDIV
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: DATLAT
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: ACCMOD
+      bit_offset: 28
+      bit_size: 2
+fieldset/BWTR4:
+  description: SRAM/NOR-Flash write timing registers 4
+  fields:
+    - name: ADDSET
+      description: ADDSET
+      bit_offset: 0
+      bit_size: 4
+    - name: ADDHLD
+      description: ADDHLD
+      bit_offset: 4
+      bit_size: 4
+    - name: DATAST
+      description: DATAST
+      bit_offset: 8
+      bit_size: 8
+    - name: BUSTURN
+      description: Bus turnaround phase duration
+      bit_offset: 16
+      bit_size: 4
+    - name: CLKDIV
+      description: CLKDIV
+      bit_offset: 20
+      bit_size: 4
+    - name: DATLAT
+      description: DATLAT
+      bit_offset: 24
+      bit_size: 4
+    - name: ACCMOD
+      description: ACCMOD
+      bit_offset: 28
+      bit_size: 2
+fieldset/ECCR2:
+  description: ECC result register 2
+  fields:
+    - name: ECCx
+      description: ECCx
+      bit_offset: 0
+      bit_size: 32
+fieldset/ECCR3:
+  description: ECC result register 3
+  fields:
+    - name: ECCx
+      description: ECCx
+      bit_offset: 0
+      bit_size: 32
+fieldset/PATT2:
+  description: Attribute memory space timing register 2
+  fields:
+    - name: ATTSETx
+      description: ATTSETx
+      bit_offset: 0
+      bit_size: 8
+    - name: ATTWAITx
+      description: ATTWAITx
+      bit_offset: 8
+      bit_size: 8
+    - name: ATTHOLDx
+      description: ATTHOLDx
+      bit_offset: 16
+      bit_size: 8
+    - name: ATTHIZx
+      description: ATTHIZx
+      bit_offset: 24
+      bit_size: 8
+fieldset/PATT3:
+  description: Attribute memory space timing register 3
+  fields:
+    - name: ATTSETx
+      description: ATTSETx
+      bit_offset: 0
+      bit_size: 8
+    - name: ATTWAITx
+      description: ATTWAITx
+      bit_offset: 8
+      bit_size: 8
+    - name: ATTHOLDx
+      description: ATTHOLDx
+      bit_offset: 16
+      bit_size: 8
+    - name: ATTHIZx
+      description: ATTHIZx
+      bit_offset: 24
+      bit_size: 8
+fieldset/PATT4:
+  description: Attribute memory space timing register 4
+  fields:
+    - name: ATTSETx
+      description: ATTSETx
+      bit_offset: 0
+      bit_size: 8
+    - name: ATTWAITx
+      description: ATTWAITx
+      bit_offset: 8
+      bit_size: 8
+    - name: ATTHOLDx
+      description: ATTHOLDx
+      bit_offset: 16
+      bit_size: 8
+    - name: ATTHIZx
+      description: ATTHIZx
+      bit_offset: 24
+      bit_size: 8
+fieldset/PCR2:
+  description: PC Card/NAND Flash control register 2
+  fields:
+    - name: PWAITEN
+      description: PWAITEN
+      bit_offset: 1
+      bit_size: 1
+    - name: PBKEN
+      description: PBKEN
+      bit_offset: 2
+      bit_size: 1
+    - name: PTYP
+      description: PTYP
+      bit_offset: 3
+      bit_size: 1
+    - name: PWID
+      description: PWID
+      bit_offset: 4
+      bit_size: 2
+    - name: ECCEN
+      description: ECCEN
+      bit_offset: 6
+      bit_size: 1
+    - name: TCLR
+      description: TCLR
+      bit_offset: 9
+      bit_size: 4
+    - name: TAR
+      description: TAR
+      bit_offset: 13
+      bit_size: 4
+    - name: ECCPS
+      description: ECCPS
+      bit_offset: 17
+      bit_size: 3
+fieldset/PCR3:
+  description: PC Card/NAND Flash control register 3
+  fields:
+    - name: PWAITEN
+      description: PWAITEN
+      bit_offset: 1
+      bit_size: 1
+    - name: PBKEN
+      description: PBKEN
+      bit_offset: 2
+      bit_size: 1
+    - name: PTYP
+      description: PTYP
+      bit_offset: 3
+      bit_size: 1
+    - name: PWID
+      description: PWID
+      bit_offset: 4
+      bit_size: 2
+    - name: ECCEN
+      description: ECCEN
+      bit_offset: 6
+      bit_size: 1
+    - name: TCLR
+      description: TCLR
+      bit_offset: 9
+      bit_size: 4
+    - name: TAR
+      description: TAR
+      bit_offset: 13
+      bit_size: 4
+    - name: ECCPS
+      description: ECCPS
+      bit_offset: 17
+      bit_size: 3
+fieldset/PCR4:
+  description: PC Card/NAND Flash control register 4
+  fields:
+    - name: PWAITEN
+      description: PWAITEN
+      bit_offset: 1
+      bit_size: 1
+    - name: PBKEN
+      description: PBKEN
+      bit_offset: 2
+      bit_size: 1
+    - name: PTYP
+      description: PTYP
+      bit_offset: 3
+      bit_size: 1
+    - name: PWID
+      description: PWID
+      bit_offset: 4
+      bit_size: 2
+    - name: ECCEN
+      description: ECCEN
+      bit_offset: 6
+      bit_size: 1
+    - name: TCLR
+      description: TCLR
+      bit_offset: 9
+      bit_size: 4
+    - name: TAR
+      description: TAR
+      bit_offset: 13
+      bit_size: 4
+    - name: ECCPS
+      description: ECCPS
+      bit_offset: 17
+      bit_size: 3
+fieldset/PIO4:
+  description: I/O space timing register 4
+  fields:
+    - name: IOSETx
+      description: IOSETx
+      bit_offset: 0
+      bit_size: 8
+    - name: IOWAITx
+      description: IOWAITx
+      bit_offset: 8
+      bit_size: 8
+    - name: IOHOLDx
+      description: IOHOLDx
+      bit_offset: 16
+      bit_size: 8
+    - name: IOHIZx
+      description: IOHIZx
+      bit_offset: 24
+      bit_size: 8
+fieldset/PMEM2:
+  description: Common memory space timing register 2
+  fields:
+    - name: MEMSETx
+      description: MEMSETx
+      bit_offset: 0
+      bit_size: 8
+    - name: MEMWAITx
+      description: MEMWAITx
+      bit_offset: 8
+      bit_size: 8
+    - name: MEMHOLDx
+      description: MEMHOLDx
+      bit_offset: 16
+      bit_size: 8
+    - name: MEMHIZx
+      description: MEMHIZx
+      bit_offset: 24
+      bit_size: 8
+fieldset/PMEM3:
+  description: Common memory space timing register 3
+  fields:
+    - name: MEMSETx
+      description: MEMSETx
+      bit_offset: 0
+      bit_size: 8
+    - name: MEMWAITx
+      description: MEMWAITx
+      bit_offset: 8
+      bit_size: 8
+    - name: MEMHOLDx
+      description: MEMHOLDx
+      bit_offset: 16
+      bit_size: 8
+    - name: MEMHIZx
+      description: MEMHIZx
+      bit_offset: 24
+      bit_size: 8
+fieldset/PMEM4:
+  description: Common memory space timing register 4
+  fields:
+    - name: MEMSETx
+      description: MEMSETx
+      bit_offset: 0
+      bit_size: 8
+    - name: MEMWAITx
+      description: MEMWAITx
+      bit_offset: 8
+      bit_size: 8
+    - name: MEMHOLDx
+      description: MEMHOLDx
+      bit_offset: 16
+      bit_size: 8
+    - name: MEMHIZx
+      description: MEMHIZx
+      bit_offset: 24
+      bit_size: 8
+fieldset/SR2:
+  description: FIFO status and interrupt register 2
+  fields:
+    - name: IRS
+      description: IRS
+      bit_offset: 0
+      bit_size: 1
+    - name: ILS
+      description: ILS
+      bit_offset: 1
+      bit_size: 1
+    - name: IFS
+      description: IFS
+      bit_offset: 2
+      bit_size: 1
+    - name: IREN
+      description: IREN
+      bit_offset: 3
+      bit_size: 1
+    - name: ILEN
+      description: ILEN
+      bit_offset: 4
+      bit_size: 1
+    - name: IFEN
+      description: IFEN
+      bit_offset: 5
+      bit_size: 1
+    - name: FEMPT
+      description: FEMPT
+      bit_offset: 6
+      bit_size: 1
+fieldset/SR3:
+  description: FIFO status and interrupt register 3
+  fields:
+    - name: IRS
+      description: IRS
+      bit_offset: 0
+      bit_size: 1
+    - name: ILS
+      description: ILS
+      bit_offset: 1
+      bit_size: 1
+    - name: IFS
+      description: IFS
+      bit_offset: 2
+      bit_size: 1
+    - name: IREN
+      description: IREN
+      bit_offset: 3
+      bit_size: 1
+    - name: ILEN
+      description: ILEN
+      bit_offset: 4
+      bit_size: 1
+    - name: IFEN
+      description: IFEN
+      bit_offset: 5
+      bit_size: 1
+    - name: FEMPT
+      description: FEMPT
+      bit_offset: 6
+      bit_size: 1
+fieldset/SR4:
+  description: FIFO status and interrupt register 4
+  fields:
+    - name: IRS
+      description: IRS
+      bit_offset: 0
+      bit_size: 1
+    - name: ILS
+      description: ILS
+      bit_offset: 1
+      bit_size: 1
+    - name: IFS
+      description: IFS
+      bit_offset: 2
+      bit_size: 1
+    - name: IREN
+      description: IREN
+      bit_offset: 3
+      bit_size: 1
+    - name: ILEN
+      description: ILEN
+      bit_offset: 4
+      bit_size: 1
+    - name: IFEN
+      description: IFEN
+      bit_offset: 5
+      bit_size: 1
+    - name: FEMPT
+      description: FEMPT
+      bit_offset: 6
+      bit_size: 1
